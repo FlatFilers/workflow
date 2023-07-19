@@ -18,9 +18,9 @@ export function configureSpace(listener: FlatfileListener) {
         sheets: [csEntrySheet],
         actions: [
           {
-            operation: 'review-data',
+            operation: 'createWorkbook',
             mode: 'foreground',
-            label: 'Request Review',
+            label: 'Create Workbook from Sheet',
             type: 'string',
             description:
               'A representative from Acme Inc. will review your data.',

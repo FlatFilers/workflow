@@ -1,7 +1,7 @@
 import { Flatfile } from '@flatfile/api'
 
 export const csEntrySheet: Flatfile.SheetConfig = {
-  name: '🏢 CS Entry Sheet',
+  name: '📝 CS Entry Sheet',
   slug: 'csEntrySheet',
   fields: [
     {
