@@ -68,7 +68,7 @@ export default function createWorkbook(listener) {
           {
             operation: 'submitAction',
             mode: 'foreground',
-            label: 'Submit',
+            label: 'Submi Data to BitQuery',
             type: 'string',
             description: 'Submit Data',
             primary: true,
