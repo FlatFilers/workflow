@@ -68,7 +68,7 @@ export default function createWorkbook(listener) {
           {
             operation: 'submitAction',
             mode: 'foreground',
-            label: 'Submi Data to BitQuery',
+            label: 'Submit Data to BitQuery',
             type: 'string',
             description: 'Submit Data',
             primary: true,
@@ -77,6 +77,106 @@ export default function createWorkbook(listener) {
       })
 
       console.log('Created Workbook:', createWorkbook)
+
+      const updateWorkbook = await api.workbooks.update(workbookId, {
+        spaceId,
+        environmentId,
+        name: workbook.data.name,
+        sheets: [
+          {
+            name: '📝 CS Entry Sheet',
+            slug: 'csEntrySheet',
+            readonly: true,
+            access: ['*'],
+            fields: [
+              {
+                key: 'key',
+                type: 'string',
+                label: 'Key',
+                constraints: [
+                  {
+                    type: 'required',
+                  },
+                  {
+                    type: 'unique',
+                  },
+                ],
+              },
+              {
+                key: 'label',
+                type: 'string',
+                label: 'Label',
+                constraints: [
+                  {
+                    type: 'required',
+                  },
+                  {
+                    type: 'unique',
+                  },
+                ],
+              },
+              {
+                key: 'type',
+                type: 'enum',
+                label: 'Type',
+                constraints: [
+                  {
+                    type: 'required',
+                  },
+                ],
+                config: {
+                  options: [
+                    {
+                      value: 'string',
+                      label: 'String',
+                    },
+                    {
+                      value: 'date',
+                      label: 'Date',
+                    },
+                    {
+                      value: 'number',
+                      label: 'Number',
+                    },
+                    {
+                      value: 'boolean',
+                      label: 'Boolean',
+                    },
+                  ],
+                },
+              },
+              {
+                key: 'description',
+                type: 'string',
+                label: 'Description',
+              },
+              {
+                key: 'required',
+                type: 'boolean',
+                label: 'Required',
+              },
+              {
+                key: 'unique',
+                type: 'boolean',
+                label: 'Unique',
+              },
+              {
+                key: 'readOnly',
+                type: 'boolean',
+                label: 'Read Only',
+              },
+              {
+                key: 'metadata',
+                type: 'string',
+                label: 'Metadata',
+                description:
+                  'Useful for any contextual metadata regarding the schema. Store any valid json here.',
+              },
+            ],
+          },
+        ],
+        actions: [],
+      })
     })
   )
 }
