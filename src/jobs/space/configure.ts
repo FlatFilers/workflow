@@ -23,7 +23,7 @@ export function configureSpace(listener: FlatfileListener) {
             label: 'Create Workbook from Sheet',
             type: 'string',
             description:
-              'A representative from Acme Inc. will review your data.',
+              'This will create a new workbook based on the data entered into this sheet.',
             primary: true,
           },
         ],

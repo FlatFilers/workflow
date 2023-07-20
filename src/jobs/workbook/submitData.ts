@@ -7,15 +7,16 @@ import axios from 'axios'
 export default function submitData(listener: FlatfileListener) {
   listener.filter({ job: 'workbook:submitAction' }, (configure) => {
     configure.on('job:ready', async (event) => {
+      const { spaceId } = event.context
       const { jobId, workbookId } = event.context
       let customerCredentials, bqKey, bqSecret
 
       try {
         // This assumes a secret is set on the Space with the label "BQAccountId"
-        customerCredentials = await event.secrets('BQAccountId')
+        customerCredentials = await event.secrets('BQAccountId', { spaceId })
         // This assumes secrets are set on the Environment with the labels BitQuery_API_KEY and BitQuery_API_SECRET
-        bqKey = await event.secrets('BQ_API_KEY')
-        bqSecret = await event.secrets('BQ_API_SECRET')
+        bqKey = await event.secrets('BQ_API_KEY', { spaceId })
+        bqSecret = await event.secrets('BQ_API_SECRET', { spaceId })
       } catch (error) {
         console.log(`[credentials error]: ${JSON.stringify(error, null, 2)}`)
 

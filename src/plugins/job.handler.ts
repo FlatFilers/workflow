@@ -50,9 +50,10 @@ export function jobHandler(
 
       // Completing the job with the outcome from the handler, or a default message if the outcome is undefined
       await api.jobs.complete(jobId, {
-        outcome: outcome ?? {
+        outcome: outcome?.outcome || {
           message: 'Job complete',
         },
+        info: outcome?.info || 'Job complete',
       })
     })
   }
