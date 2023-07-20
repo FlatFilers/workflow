@@ -14,7 +14,7 @@ export function configureSpace(listener: FlatfileListener) {
   listener.use(
     simpleSpaceSetup({
       workbook: {
-        name: 'Customer Success Entry Sheet',
+        name: 'Customer Success Workbook',
         sheets: [csEntrySheet],
         actions: [
           {
