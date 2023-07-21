@@ -1,0 +1,8 @@
+﻿key,label,type,required,unique
+id,Employee ID,string,TRUE,TRUE
+badge,Badge Number,number,FALSE,TRUE
+hire,Hire Date,date,TRUE,
+active,Active?,boolean,TRUE,
+first,First Name,string,TRUE,
+last,Last Name,string,TRUE,
+middle,Middle Name,string,FALSE,
