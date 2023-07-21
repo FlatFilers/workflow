@@ -25,16 +25,19 @@ export default function createWorkbook(listener: FlatfileListener) {
 
         // Create a new SheetConfig
         const newSheetConfig = {
-          name: 'New Sheet based on CS Entry Sheet',
-          slug: 'newSheetBasedOnCSEntrySheet',
+          name: '🎫 Customer Entry Sheet',
+          slug: 'customerEntrySheet',
           fields: [],
         }
 
         // Iterate over the records and create fields
         for (const record of csEntryRecords.data.records) {
+          const key = record.values['key']?.value || ''
+          const label = record.values['label']?.value || key
+
           const field = {
-            key: record.values['key']?.value || '',
-            label: record.values['label']?.value || '',
+            key: key,
+            label: label,
             type: record.values['type']?.value || 'string', // Set a default type if not provided
             description: record.values['description']?.value || '',
             readonly: Boolean(record.values['readOnly']?.value),
