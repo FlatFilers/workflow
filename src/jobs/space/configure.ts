@@ -3,7 +3,7 @@ import { csEntrySheet } from '../../blueprints'
 import { simpleSpaceSetup } from '../../plugins/simple.space.setup'
 
 /**
- * Configures a Flatfile space with an employee registry
+ * Configures a Flatfile space with the Customer Success
  * workbook, sheets and actions.
  *
  * @param listener The FlatfileListener instance

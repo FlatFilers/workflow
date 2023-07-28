@@ -72,7 +72,7 @@ export default function createWorkbook(listener: FlatfileListener) {
             {
               operation: 'submitAction',
               mode: 'foreground',
-              label: 'Submit Data to BitQuery',
+              label: 'Submit Data to BigQuery',
               type: 'string',
               description: 'Submit Data',
               primary: true,
